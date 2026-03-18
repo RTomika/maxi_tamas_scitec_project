@@ -1,0 +1,274 @@
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --mainColor: hsl(273, 67%, 46%);
+    --bgColor: hsl(0, 0%, 10%);
+}
+
+::selection {
+    background-color: var(--mainColor);
+    color: black;
+}
+
+/*Lenis scroll*/
+html.lenis, html.lenis body {height: auto;}
+.lenis.lenis-smooth {scroll-behavior: auto !important;}
+.lenis.lenis-smooth [data-lenis-prevent] {overscroll-behavior: contain;}
+.lenis.lenis-stopped {overflow: hidden;}
+.lenis.lenis-smooth iframe {pointer-events: none;}
+
+.dropScroll {
+    transform: translateY(-40px);
+    opacity: 0;
+    filter: blur(4px);
+    transition: all 1s ease-in-out;
+}
+.dropShow {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    filter: blur(0) !important;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+}
+
+.hero video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transform: translateY(0);
+    will-change: transform;
+}
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--bgColor);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.1s linear;
+}
+
+.lines {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    margin-block: 10px;
+    border-radius: 20px;
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), hsl(293, 66%, 48%), var(--mainColor));
+}
+.lines::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+    background: inherit;
+    filter: blur(20px);
+}
+
+nav {
+    position: fixed;
+    top: -60px;
+    opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1400px;
+    width: 90vw;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 16px;
+    height: 60px;
+    border-radius: 100px;
+    transition: top .6s ease-in-out, opacity .6s ease-in-out, background .3s ease-in-out;
+}
+.navShow {
+    top: 20px !important;
+    opacity: 1 !important;
+}
+nav:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.062);
+}
+
+/*Navbar*/
+
+nav img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    height: calc(100% - 10px);
+    border-radius: 100%;
+}
+.navContent {
+    position: absolute;
+    width: fit-content;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+.navContent a {
+    position: relative;
+    text-decoration: none;
+    color: hsl(0, 0%, 70%);
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all .2s ease-in-out;
+}
+.navContent a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    transform: scaleX(0);
+    background-color: var(--mainColor);
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--mainColSecGrad);
+    transition: transform .2s ease-in-out;
+}
+.navContent a:hover::after {
+    transform: scaleX(1);
+}
+.navContent a:hover {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+#bars {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 40px;
+    color: white;
+    font-size: 1.3rem;
+    z-index: 2;
+    display: none;
+}
+
+.middleCont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 40px;
+}
+.middleCont h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    font-size: 4rem;
+    color: hsl(0, 0%, 95%);
+}
+.middleCont p {
+    color: hsl(0, 0%, 80%);
+    font-size: 1.25rem;
+}
+.btnCont {
+    display: flex;
+    margin-inline: auto;
+    margin-bottom: 0;
+    max-width: 600px;
+    justify-content: space-around;
+}
+.btnCont a {
+    width: fit-content;
+    margin-bottom: 0;
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: hsl(0, 0%, 85%);
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    padding: 4px 50px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), hsl(293, 66%, 48%), var(--mainColor));
+    transition: all .3s ease-in-out;
+}
+.btnCont a:hover {
+    box-shadow: 0 0 14px var(--mainColor);
+    color: white;
+}
+
+/*Sections*/
+section {
+    min-height: 100vh;
+    padding-top: 40px;
+    background-color: var(--bgColor);
+}
+section h2 {
+    text-align: center;
+    color: hsl(0, 0%, 90%);
+    font-size: 2.5rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+
+/*Offerings*/
+.textCol {
+    display: flex;
+    align-items: end;
+}
+.textCol p {
+    color: hsl(0, 0%, 80%);
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.offerRow {
+    max-width: 1000px;
+    margin-inline: auto;
+    margin-block: 30px;
+}
+
+.offerCol {
+    max-width: 500px;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.offerCol img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.offerBtn {
+}
+.offerBtn a {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    color: hsl(0, 0%, 85%);
+    text-decoration: none;
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), hsl(293, 66%, 48%), var(--mainColor));
+}
