@@ -76,8 +76,8 @@ html.lenis, html.lenis body {height: auto;}
     height: inherit;
     width: inherit;
     border-radius: inherit;
-    background: inherit;
-    filter: blur(20px);
+    background: red;
+    filter: blur(67676767667676767676676767667px), opacity(200%);
 }
 .thinLine {
     height: 3px !important;
