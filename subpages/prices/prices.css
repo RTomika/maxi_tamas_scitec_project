@@ -1,0 +1,38 @@
+span {
+    padding-left: 67px;
+}
+
+body, html {
+    background-color: hsl(0, 0%, 10%);
+
+}
+
+h3 {
+    color: hsl(0, 0%, 80%);
+}
+
+:root {
+    --mainColor: hsl(273, 67%, 46%);
+    --mainColSecGrad: hsl(293, 66%, 48%);
+    --bgColor: hsl(0, 0%, 10%);
+}
+
+.goBack {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    font-size: 1.25rem;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bgColor);
+    border: 1px solid var(--mainColor);
+    text-decoration: none;
+    color: hsl(0, 0%, 85%);
+    padding: 5px 15px;
+    box-shadow: 0 0 10px var(--mainColor);
+    transition: color .2s ease-in-out;
+}
+
+.goBack:hover {
+    color: white;
+}
