@@ -76,8 +76,6 @@ html.lenis, html.lenis body {height: auto;}
     height: inherit;
     width: inherit;
     border-radius: inherit;
-    background: red;
-    filter: blur(67676767667676767676676767667px), opacity(200%);
 }
 .thinLine {
     height: 3px !important;
@@ -249,19 +247,24 @@ section h2 {
     font-family: "Poppins", sans-serif;
 }
 
+
+
 .offerRow {
     max-width: 1000px;
     margin-inline: auto;
-    margin-block: 50px;
+    margin-block: 20px;
+    display: flex;
+    justify-content: center;
+}
+.textCol {
+    padding-left: 10px !important;
 }
 
 .offerCol {
     max-width: 500px;
     padding: 0;
-    margin-inline: 10px;
     width: 100%;
     border-radius: 10px;
-    height: 600px;
     overflow: hidden;
 }
 
