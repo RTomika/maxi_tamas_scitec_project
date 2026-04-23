@@ -11,7 +11,32 @@
     <title>Árak</title>
 </head>
 <body>
-    <a href="../../index.html" class="goBack">Vissza</a>
+    <header>
+        <nav id="nav" class="container-fluid">
+            <a class="brand-link" href="../../index.html"><img src="../../logo.avif" alt="Logo"></a>
+            <div class="navContent">
+                <a href="../../index.html#middleCont">Kapcsolat</a>
+                <a href="../../index.html#openCont">Nyitvatartás</a>
+                <a href="../../Gallery/gallery.html">Galéria</a>
+                <a href="../../index.html#feature-bar">Tudnivalók</a>
+            </div>
+            <button class="nav-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#pricesOffcanvas" aria-controls="pricesOffcanvas" aria-label="Menü">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="pricesOffcanvas" aria-labelledby="pricesOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="pricesOffcanvasLabel">Menü</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Bezár"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="../../index.html#middleCont">Kapcsolat</a>
+            <a href="../../index.html#openCont">Nyitvatartás</a>
+            <a href="../../Gallery/gallery.html">Galéria</a>
+            <a href="../../index.html#feature-bar">Tudnivalók</a>
+        </div>
+    </div>
     <main class="prices-main">
         <section class="prices-card">
             <h2>Árak</h2>
@@ -60,5 +85,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/6f2de72ade.js" crossorigin="anonymous"></script>
+    <script src="../../script.js"></script>
 </body>
 </html>

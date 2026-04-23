@@ -1,17 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
     const videoOverlay = document.querySelector(".video-overlay");
     const video = document.getElementById("heroVideo");
+    const hero = document.querySelector(".hero");
     
     function handleScroll() {
         const scrollY = window.scrollY;
         const fadeDistance = window.innerHeight * 0.7;
     
-        const progress = Math.min(scrollY / fadeDistance, 1);
-    
-    
-        videoOverlay.style.opacity = progress;
-    
-        video.style.transform = `translateY(${scrollY * 0.6}px)`;
+        if (videoOverlay && video && hero) {
+            const progress = Math.min(scrollY / fadeDistance, 1);
+            const maxTranslate = hero.clientHeight * 0.6;
+            const translateY = Math.min(scrollY * 0.6, maxTranslate);
+            videoOverlay.style.opacity = progress;
+            video.style.transform = `translateY(${translateY}px)`;
+            if (scrollY >= hero.clientHeight) {
+                video.pause();
+            } else {
+                video.play();
+            }
+        }
     }
     
     window.addEventListener("scroll", handleScroll);
