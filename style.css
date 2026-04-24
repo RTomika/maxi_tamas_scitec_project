@@ -84,28 +84,81 @@ html.lenis, html.lenis body {height: auto;}
 nav {
     position: fixed;
     top: -60px;
-    opacity: 0;
     left: 50%;
     transform: translateX(-50%);
     max-width: 1400px;
     width: 90vw;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.2);
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(14px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 16px 24px;
     height: 60px;
     border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    opacity: 0;
     transition: top .6s ease-in-out, opacity .6s ease-in-out, background .3s ease-in-out;
 }
+
 .navShow {
     top: 20px !important;
     opacity: 1 !important;
 }
+
 nav:hover {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.062);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.nav-toggle {
+    display: none;
+    margin-left: auto;
+    color: hsl(0, 0%, 85%);
+    font-size: 1.3rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.offcanvas {
+    color: white;
+}
+
+.offcanvas .btn-close {
+    filter: invert(1);
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.offcanvas-body a {
+    display: block;
+    margin-bottom: 1rem;
+    color: hsl(0, 0%, 85%);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.offcanvas-body a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease-in-out;
+}
+
+.offcanvas-body a:hover::after {
+    transform: scaleX(1);
 }
 
 /*Navbar*/
@@ -128,35 +181,37 @@ nav img {
     flex-direction: row;
     gap: 40px;
 }
+
 .navContent a {
     position: relative;
     text-decoration: none;
-    color: hsl(0, 0%, 70%);
+    color: hsl(0, 0%, 85%);
     font-size: 1.25rem;
-    cursor: pointer;
     font-weight: 600;
-    transition: all .2s ease-in-out;
+    transition: color .2s ease-in-out;
 }
+
 .navContent a::after {
     content: "";
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
     height: 4px;
     width: 100%;
     transform: scaleX(0);
-    background-color: var(--mainColor);
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
     border-radius: 10px;
-    box-shadow: 0 0 10px var(--mainColSecGrad);
     transition: transform .2s ease-in-out;
 }
+
 .navContent a:hover::after {
     transform: scaleX(1);
 }
+
 .navContent a:hover {
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
     color: white;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
 #bars {
@@ -167,7 +222,17 @@ nav img {
     color: white;
     font-size: 1.3rem;
     z-index: 2;
-    display: none;
+    display: block;
+}
+
+@media screen and (max-width: 900px) {
+    .navContent {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
 }
 
 .middleCont {
