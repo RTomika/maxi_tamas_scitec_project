@@ -1,0 +1,152 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bgColor);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+:root {
+    --mainColor: hsl(273, 67%, 46%);
+    --mainColSecGrad: hsl(293, 66%, 48%);
+    --bgColor: hsl(0, 0%, 10%);
+}
+
+.goBack {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    font-size: 1.25rem;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bgColor);
+    border: 1px solid var(--mainColor);
+    text-decoration: none;
+    color: hsl(0, 0%, 85%);
+    padding: 5px 15px;
+    box-shadow: 0 0 10px var(--mainColor);
+    transition: color .2s ease-in-out;
+}
+.goBack:hover {
+    color: white;
+}
+
+.lines {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    margin-block: 0px 10px;
+    border-radius: 20px;
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
+}
+
+.middleCont {
+    margin-block: 60px;
+    background-color: hsl(0, 0%, 7%);
+    border-radius: 40px;
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+    max-width: 1000px;
+    box-shadow: 0 0 20px var(--mainColor);
+    flex-wrap: wrap;
+}
+
+.pictureCont {
+    position: relative;
+    border-radius: 20px;
+    height: 340px;
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid hsla(273, 67%, 46%, 0);
+    box-shadow: 0 0 20px hsla(293, 66%, 48%, 0);
+    transition: all .5s ease-in-out;
+}
+.pictureCont:hover {
+    border: 1px solid var(--mainColor);
+    box-shadow: 0 0 20px var(--mainColor);
+}
+
+@media (min-width: 768px) {
+    .pictureCont {
+        flex-basis: calc(50% - 20px);
+    }
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s ease-in-out;
+    z-index: 1;
+}
+.pictureCont:hover .overlay {
+    opacity: 1;
+}
+
+.pictureCont .textCont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 0;
+    text-align: center;
+    transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+    pointer-events: none;
+}
+.pictureCont:hover .textCont,
+.pictureCont .textCont.showText {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+.showText {
+    opacity: 1;
+}
+
+.textCont h3, .textCont p {
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+.textCont h3 {
+    color: white;
+    font-size: 2rem;
+}
+.textCont p {
+    color: hsl(0, 0%, 85%);
+    font-size: 1rem;
+}
+
+.pictureCont img {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    object-fit: cover;
+    display: block;
+}
+
+@media screen and (max-width: 576px) {
+    .middleCont {
+        width: 90vw;
+        padding: 20px;
+    }
+    .pictureCont {
+        border-radius: 30px;
+    }
+}
