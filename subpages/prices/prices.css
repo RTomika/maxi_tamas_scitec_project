@@ -11,7 +11,10 @@ body, html {
     font-family: "Poppins", sans-serif;
     background-color: var(--bgColor);
     color: white;
+    overflow-x: hidden;
 }
+
+/*Csíkok*/
 
 .lines {
     position: relative;
@@ -21,6 +24,8 @@ body, html {
     border-radius: 20px;
     background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
 }
+
+/*Navbars*/
 
 nav {
     position: fixed;
@@ -122,6 +127,13 @@ nav:hover {
 
 .offcanvas {
     color: white;
+    width: 70% !important;
+    max-width: 400px;
+}
+
+.offcanvas-backdrop {
+    transition: 0.3s !important;
+    backdrop-filter: blur(4px);
 }
 
 .offcanvas .btn-close {
@@ -159,6 +171,8 @@ nav:hover {
     transform: scaleX(1);
 }
 
+/*Táblázat*/
+
 .prices-main {
     min-height: 100vh;
     display: flex;
@@ -175,6 +189,7 @@ nav:hover {
     border-radius: 40px;
     padding: 50px 40px;
     box-shadow: 0 0 20px var(--mainColor);
+    overflow: hidden;
 }
 
 .prices-card h2 {
@@ -224,6 +239,8 @@ nav:hover {
     color: hsl(0, 0%, 90%);
 }
 
+/*Reszponzív rész*/
+
 @media screen and (max-width: 900px) {
     .navContent {
         display: none;
@@ -244,8 +261,3 @@ nav:hover {
         padding: 14px 12px;
     }
 }
-
-    .prices-table th,
-    .prices-table td {
-        padding: 14px 12px;
-    }
