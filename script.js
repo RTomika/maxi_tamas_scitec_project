@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const scrollY = window.scrollY;
         const fadeDistance = window.innerHeight * 0.7;
     
+        // A videó megáll hogyha már nem látszik, hogyha inaktív vagy az oldalon, és elindul újra ha újra látszik. (így ezáltal opitimizáltabb az oldal és nem akadozik jobban telefonokon.)
         if (videoOverlay && video && hero) {
             const progress = Math.min(scrollY / fadeDistance, 1);
             const maxTranslate = hero.clientHeight * 0.6;
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         nav.classList.add("navShow")
     }, 500);
 
-    //scroll nav disappearance thing
+    //a nav eltűnik ha lefelé görgetünk és megjelenik ha felfelé görgetünk
     let lastScrollY = window.scrollY;
 
     window.addEventListener("scroll", () => {
@@ -92,5 +93,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.7 });
 
     lines.forEach(line => observer2.observe(line));
+
+    // Az offcanvas bezáródik hogyha rányomunk bármilyen linkre
+    const offcanvasElements = document.querySelectorAll(".offcanvas");
+    offcanvasElements.forEach(offcanvasElement => {
+        const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement) || new bootstrap.Offcanvas(offcanvasElement);
+        const offcanvasLinks = offcanvasElement.querySelectorAll(".offcanvas-body a");
+        
+        offcanvasLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                offcanvasInstance.hide();
+            });
+        });
+    });
 
 });

@@ -4,3 +4,77 @@
         padding-top: 15px;
     }
 }
+
+@media screen and (max-width: 900px) {
+
+    .navContent {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .middleCont {
+        padding: 30px !important;
+        border-radius: 30px;
+    }
+
+    .middleCont h1 {
+        font-size: 2.5rem;
+    }
+
+    .middleCont p {
+        font-size: 1rem;
+    }
+
+    .btnCont {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btnCont a {
+        font-size: 1.25rem;
+        padding: 8px 30px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .middleCont {
+        padding: 20px !important;
+    }
+
+    .middleCont h1 {
+        font-size: 1.75rem;
+    }
+
+    .middleCont p {
+        font-size: 0.9rem;
+    }
+
+    .btnCont a {
+        font-size: 1rem;
+        padding: 6px 20px;
+    }
+
+    .offerRow {
+        flex-direction: column;
+        margin-block: 40px;
+    }
+
+    .offerCol {
+        max-width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .textCol h3 {
+        font-size: 1.5rem;
+    }
+
+    section h2 {
+        font-size: 1.75rem;
+    }
+}
+

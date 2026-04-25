@@ -1,6 +1,7 @@
 body, html {
     padding: 0;
     margin: 0;
+    overflow-x: hidden;
 }
 
 :root {
@@ -15,6 +16,7 @@ body, html {
 }
 
 /*Lenis scroll*/
+
 html.lenis, html.lenis body {height: auto;}
 .lenis.lenis-smooth {scroll-behavior: auto !important;}
 .lenis.lenis-smooth [data-lenis-prevent] {overscroll-behavior: contain;}
@@ -33,9 +35,12 @@ html.lenis, html.lenis body {height: auto;}
     filter: blur(0) !important;
 }
 
+/*Vdeó háttér*/
+
 .hero {
     position: relative;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 .hero video {
@@ -59,6 +64,8 @@ html.lenis, html.lenis body {height: auto;}
     transition: opacity 0.1s linear;
 }
 
+/*Csíkok*/
+
 .lines {
     position: relative;
     width: 100%;
@@ -80,6 +87,8 @@ html.lenis, html.lenis body {height: auto;}
 .thinLine {
     height: 3px !important;
 }
+
+/*Navbar*/
 
 nav {
     position: fixed;
@@ -124,6 +133,13 @@ nav:hover {
 
 .offcanvas {
     color: white;
+    width: 70% !important;
+    max-width: 400px;
+}
+
+.offcanvas-backdrop {
+    transition: 0.3s !important;
+    backdrop-filter: blur(4px);
 }
 
 .offcanvas .btn-close {
@@ -131,7 +147,7 @@ nav:hover {
 }
 
 .offcanvas-header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .offcanvas-body a {
@@ -161,9 +177,7 @@ nav:hover {
     transform: scaleX(1);
 }
 
-/*Navbar*/
-
-nav img {
+.brand-link {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -171,6 +185,12 @@ nav img {
     height: calc(100% - 10px);
     border-radius: 100%;
 }
+
+.brand-link img {
+    height: 45px;
+    border-radius: 100%;
+}
+
 .navContent {
     position: absolute;
     width: fit-content;
@@ -225,15 +245,7 @@ nav img {
     display: block;
 }
 
-@media screen and (max-width: 900px) {
-    .navContent {
-        display: none;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-}
+/*Középső tartalom (a 2 gombos rész)*/
 
 .middleCont {
     position: absolute;
@@ -285,10 +297,12 @@ nav img {
 }
 
 /*Sections*/
+
 section {
     min-height: 100vh;
     padding-top: 40px;
     background-color: var(--bgColor);
+    overflow: hidden;
 }
 section h2 {
     text-align: center;
@@ -300,6 +314,7 @@ section h2 {
 
 
 /*Offerings*/
+
 .textCol {
     display: flex;
     flex-direction: column;
