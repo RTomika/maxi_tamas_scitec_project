@@ -16,6 +16,7 @@
     }
 
     .middleCont {
+        width: 70vw;
         padding: 30px !important;
         border-radius: 30px;
     }
@@ -43,7 +44,9 @@
 
 @media screen and (max-width: 480px) {
     .middleCont {
-        padding: 20px !important;
+        padding: 20px 10px !important;
+        width: 90vw;
+        margin-inline: auto;
     }
 
     .middleCont h1 {
@@ -75,6 +78,16 @@
 
     section h2 {
         font-size: 1.75rem;
+    }
+
+    .leftCont h3  {
+        font-size: 1.5rem;
+    }
+    .leftCont p {
+        font-size: 1.1rem;
+    }
+    #openBox {
+        padding-inline: 5px;
     }
 }
 

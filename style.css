@@ -332,7 +332,7 @@ section h2 {
 .offerRow {
     max-width: 1000px;
     margin-inline: auto;
-    margin-block: 20px;
+    margin-block: 30px;
     display: flex;
     justify-content: center;
 }
@@ -413,3 +413,59 @@ section h2 {
     color: white;
     box-shadow: 0 0 14px var(--mainColor);
 }
+
+
+/*Nyitvatartás*/
+
+.openSmallSect {
+    min-height: fit-content !important;
+}
+.openSect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0;
+}
+.openCont .row {
+    position: relative;
+    height: fit-content;
+    padding: 0;
+    z-index: 2;
+    margin-top: 0;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.leftCont h3 {
+    color: hsl(0, 0%, 90%);
+    font-size: 2.25rem;
+    font-family: "Poppins", sans-serif;
+}
+.leftCont p {
+    color: hsl(0, 0%, 80%);
+    font-size: 1.25rem;
+}
+#faceLink {
+    color: var(--mainColor);
+    transition: color .2s ease-in-out;
+}
+#faceLink:hover {
+    color: var(--mainColSecGrad);
+}
+
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 0;
+}
+table tr:hover {
+    background: rgba(255,196,0,0.08);
+    transform: translateX(5px);
+}
+table tr {transition: all .3s ease-in-out; cursor: pointer;}
+thead th {border-bottom: 1px solid var(--mainColor);}
+table tr {background: rgba(255,255,255,0.04);}
+table tr {border-bottom: 1px solid rgba(255, 166, 0, 0);}
+table tr:hover {border-bottom: 1px solid var(--mainColor);}
