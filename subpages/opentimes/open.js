@@ -1,19 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const pictureConts = document.querySelectorAll(".pictureCont");
-
-    pictureConts.forEach(pictureCont => {
-        const textCont = pictureCont.querySelector(".textCont");
-        if (!textCont) return;
-
-        pictureCont.addEventListener("mouseenter", () => {
-            textCont.classList.add("showText");
-        });
-
-        pictureCont.addEventListener("mouseleave", () => {
-            textCont.classList.remove("showText");
-        });
-    });
-
     const nav = document.getElementById("nav");
     setTimeout(() => {
         nav.classList.add("navShow")
@@ -33,5 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         lastScrollY = currentScrollY;
     });
-});
 
+    const lines = document.querySelectorAll(".lines");
+    const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
+                setTimeout(() => {
+                    entry.target.classList.add("lineShow");
+                }, 300);
+            }
+        });
+    }, { threshold: 0.7 });
+
+    lines.forEach(line => observer2.observe(line));
+})

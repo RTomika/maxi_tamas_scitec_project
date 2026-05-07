@@ -22,6 +22,153 @@ body, html {
     --bgColor: hsl(0, 0%, 10%);
 }
 
+
+/*Navbars*/
+
+nav {
+    position: fixed;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1400px;
+    width: 90vw !important;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 16px 24px;
+    height: 60px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    opacity: 0;
+    transition: top .6s ease-in-out, opacity .6s ease-in-out, background .3s ease-in-out;
+}
+
+.navShow {
+    top: 20px !important;
+    opacity: 1 !important;
+}
+
+nav:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.brand-link {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+}
+
+.brand-link img {
+    height: 45px;
+    border-radius: 100%;
+}
+
+.navContent {
+    position: absolute;
+    width: fit-content;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+}
+
+.navContent a {
+    position: relative;
+    text-decoration: none;
+    color: hsl(0, 0%, 85%);
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: color .2s ease-in-out;
+}
+
+.navContent a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    transform: scaleX(0);
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
+    border-radius: 10px;
+    transition: transform .2s ease-in-out;
+}
+
+.navContent a:hover::after {
+    transform: scaleX(1);
+}
+
+.navContent a:hover {
+    color: white;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+.nav-toggle {
+    display: none;
+    margin-left: auto;
+    color: hsl(0, 0%, 85%);
+    font-size: 1.3rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.offcanvas {
+    color: white;
+    width: 70% !important;
+    max-width: 400px;
+}
+
+.offcanvas-backdrop {
+    transition: 0.3s !important;
+    backdrop-filter: blur(4px);
+}
+
+.offcanvas .btn-close {
+    filter: invert(1);
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.offcanvas-body a {
+    display: block;
+    margin-bottom: 1rem;
+    color: hsl(0, 0%, 85%);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.offcanvas-body a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease-in-out;
+}
+
+.offcanvas-body a:hover::after {
+    transform: scaleX(1);
+}
+
 .lines {
     position: relative;
     width: 100%;
@@ -31,24 +178,6 @@ body, html {
     background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
 }
 
-.goBack {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 2;
-    font-size: 1.25rem;
-    font-family: "Poppins", sans-serif;
-    background-color: var(--bgColor);
-    border: 1px solid var(--mainColor);
-    text-decoration: none;
-    color: hsl(0, 0%, 85%);
-    padding: 5px 15px;
-    box-shadow: 0 0 10px var(--mainColor);
-    transition: color .2s ease-in-out;
-}
-.goBack:hover {
-    color: white;
-}
 
 .middleCont {
     max-width: 1000px;
@@ -132,6 +261,26 @@ input:focus, textarea:focus {
 .iconCont i:hover {
     color: var(--mainColSecGrad);
 }
+
+
+@media screen and (max-width: 900px) {
+
+    .navContent {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        width: 95vw !important;
+    }
+}
+
+
 
 @media screen and (max-width: 467px) {
     .middleCont {

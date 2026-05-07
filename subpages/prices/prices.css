@@ -33,7 +33,7 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     max-width: 1400px;
-    width: 90vw;
+    width: 90vw !important;
     z-index: 20;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(14px);
@@ -252,6 +252,9 @@ nav:hover {
 }
 
 @media screen and (max-width: 467px) {
+    h2 {
+        text-align: center;
+    }
     .prices-card {
         padding: 50px 15px;
     }

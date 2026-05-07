@@ -1,13 +1,108 @@
 body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: var(--bgColor);
-    color: white;
+    overflow-x: hidden;
+}
+
+:root {
+    --mainColor: hsl(273, 67%, 46%);
+    --mainColSecGrad: hsl(293, 66%, 48%);
+    --bgColor: hsl(0, 0%, 10%);
+}
+
+::selection {
+    background-color: var(--mainColor);
+    color: black;
+}
+
+
+/*Csíkok*/
+
+.lines {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    margin-block: 10px;
+    border-radius: 20px;
+    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
+}
+.lines::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+}
+
+section {
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    padding-top: 100px;
+}
+
+.openCont {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
+.openCont .row {
+    position: absolute;
+    max-width: 1000px;
+    width: 90vw;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid var(--mainColor);
+    box-shadow: 0 0 12px var(--mainColor);
+    border-radius: 30px;
+    height: fit-content;
+    z-index: 2;
+    margin-top: 0;
+    margin-inline: auto;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.leftCont h3 {
+    color: hsl(0, 0%, 90%);
+    font-size: 2.25rem;
+    font-family: "Poppins", sans-serif;
+}
+.leftCont p {
+    color: hsl(0, 0%, 80%);
+    font-size: 1.25rem;
+}
+#faceLink {
+    color: var(--mainColor);
+    transition: color .2s ease-in-out;
+}
+#faceLink:hover {
+    color: var(--mainColSecGrad);
+}
+
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin: 0 !important;
+}
+table tr:hover {
+    background: rgba(255,196,0,0.08);
+    transform: translateX(5px);
+}
+table tr {transition: all .3s ease-in-out; cursor: pointer;}
+thead th {border-bottom: 1px solid var(--mainColor);}
+table tr {background: rgba(255,255,255,0.04);}
+table tr {border-bottom: 1px solid rgba(255, 166, 0, 0);}
+table tr:hover {border-bottom: 1px solid var(--mainColor);}
+
+
+
 
 /*Navbars*/
 
@@ -17,7 +112,7 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     max-width: 1400px;
-    width: 90vw;
+    width: 90vw !important;
     z-index: 20;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(14px);
@@ -156,118 +251,11 @@ nav:hover {
 }
 
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-:root {
-    --mainColor: hsl(273, 67%, 46%);
-    --mainColSecGrad: hsl(293, 66%, 48%);
-    --bgColor: hsl(0, 0%, 10%);
-}
-
-
-.lines {
-    position: relative;
-    width: 100%;
-    height: 4px;
-    margin-block: 0px 10px;
-    border-radius: 20px;
-    background: linear-gradient(120deg, var(--mainColor), var(--mainColor), var(--mainColSecGrad), var(--mainColor));
-}
-
-.middleCont {
-    margin-block: 110px 60px;
-    background-color: hsl(0, 0%, 7%);
-    border-radius: 40px;
-    padding: 40px;
-    display: flex;
-    gap: 40px;
-    max-width: 1000px;
-    box-shadow: 0 0 20px var(--mainColor);
-    flex-wrap: wrap;
-}
-
-.pictureCont {
-    position: relative;
-    border-radius: 20px;
-    height: 340px;
-    overflow: hidden;
-    padding: 0;
-    border: 1px solid hsla(273, 67%, 46%, 0);
-    box-shadow: 0 0 20px hsla(293, 66%, 48%, 0);
-    transition: all .5s ease-in-out;
-}
-.pictureCont:hover {
-    border: 1px solid var(--mainColor);
-    box-shadow: 0 0 20px var(--mainColor);
-}
-
-@media (min-width: 768px) {
-    .pictureCont {
-        flex-basis: calc(50% - 20px);
+@media screen and (max-width: 991.99px) {
+    .openCont .row {
+        top: 110px;
+        transform: translateY(0);
     }
-}
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .5s ease-in-out;
-    z-index: 1;
-}
-.pictureCont:hover .overlay {
-    opacity: 1;
-}
-
-.pictureCont .textCont {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    opacity: 0;
-    text-align: center;
-    transition: opacity .5s ease-in-out, transform .5s ease-in-out;
-    pointer-events: none;
-}
-.pictureCont:hover .textCont,
-.pictureCont .textCont.showText {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-}
-.showText {
-    opacity: 1;
-}
-
-.textCont h3, .textCont p {
-    font-family: "Poppins", sans-serif;
-    color: white;
-}
-.textCont h3 {
-    color: white;
-    font-size: 2rem;
-}
-.textCont p {
-    color: hsl(0, 0%, 85%);
-    font-size: 1rem;
-}
-
-.pictureCont img {
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    object-fit: cover;
-    display: block;
 }
 
 @media screen and (max-width: 900px) {
@@ -293,13 +281,3 @@ nav:hover {
     }
 }
 
-
-@media screen and (max-width: 576px) {
-    .middleCont {
-        width: 90vw;
-        padding: 20px;
-    }
-    .pictureCont {
-        border-radius: 30px;
-    }
-}

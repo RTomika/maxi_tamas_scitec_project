@@ -95,8 +95,8 @@ nav {
     top: -60px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 1400px;
-    width: 90vw;
+    max-width: 1300px;
+    width: 90vw !important;
     z-index: 20;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(14px);
@@ -299,15 +299,16 @@ nav:hover {
 /*Sections*/
 
 section {
-    min-height: 100vh;
     padding-top: 40px;
     background-color: var(--bgColor);
     overflow: hidden;
 }
 section h2 {
     text-align: center;
-    color: hsl(0, 0%, 90%);
+    color: hsl(0, 0%, 85%);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     font-size: 2.5rem;
+    margin-bottom: 20px;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
@@ -469,3 +470,26 @@ thead th {border-bottom: 1px solid var(--mainColor);}
 table tr {background: rgba(255,255,255,0.04);}
 table tr {border-bottom: 1px solid rgba(255, 166, 0, 0);}
 table tr:hover {border-bottom: 1px solid var(--mainColor);}
+
+
+/*Footer*/
+
+footer {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.67);
+    position: relative;
+    height: 100px;
+    background: linear-gradient(to right, hsl(0, 0%, 90%), hsl(0, 0%, 86%));
+    padding-block: 0;
+}
+footer h3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    background-color: transparent;
+    color: hsl(0, 0%, 10%);
+    margin: 0;
+}

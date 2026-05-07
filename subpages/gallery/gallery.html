@@ -11,7 +11,33 @@
     <title>Kapcsolat</title>
 </head>
 <body>
-    <a href="../../index.html" class="goBack">Vissza</a>
+    <header>
+        <nav id="nav" class="container-fluid">
+            <a class="brand-link" href="../../index.html"><img src="../../logo.avif" alt="Logo"></a>
+            <div class="navContent">
+                <a href="../../subpages/contact/contact.html">Kapcsolat</a>
+                <a href="../../subpages/opentimes/open.html">Nyitvatartás</a>
+                <a href="../../subpages/gallery/gallery.html">Galéria</a>
+                <a href="../../index.html#feature-bar">Tudnivalók</a>
+            </div>
+            <button class="nav-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#pricesOffcanvas" aria-controls="pricesOffcanvas" aria-label="Menü">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="pricesOffcanvas" aria-labelledby="pricesOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="pricesOffcanvasLabel">Menü</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Bezár"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="../../subpages/contact/contact.html">Kapcsolat</a>
+            <a href="../../subpages/opentimes/open.html">Nyitvatartás</a>
+            <a href="../../Gallery/gallery.html">Galéria</a>
+            <a href="../../index.html#feature-bar">Tudnivalók</a>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row middleCont">
             <div class="col-md-6 pictureCont">
